@@ -11,7 +11,7 @@ CREATE TABLE endereço(
     pais VARCHAR(255) NOT NULL,
     cidade VARCHAR(255) NOT NULL,
     bairro VARCHAR(255) NOT NULL,
-    rua VARCHAR(255) NOT NULL,
+    logradouro VARCHAR(255) NOT NULL,
     numero VARCHAR(20)
 );
 
@@ -28,7 +28,7 @@ CREATE TABLE loja(
     loja_id SERIAL PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     endereco VARCHAR(255) NOT NULL,
-    endereço_id INT,
+    endereço_id INT NOT NULL,
     FOREIGN KEY (endereco_id) REFERENCES endereço(endereco_id)
 );
 
@@ -37,7 +37,6 @@ CREATE TABLE funcionario(
     nome VARCHAR(255) NOT NULL,
     cargo VARCHAR(255) NOT NULL,
     loja_id INT NOT NULL,
-    endereço_id INT,
     FOREIGN KEY (loja_id) REFERENCES loja(loja_id),
     FOREIGN KEY (endereço_id) REFERENCES endereço(endereço_id)
 );
@@ -58,7 +57,7 @@ CREATE TABLE filme_ator(
 CREATE TABLE pagamento(
     pagamento_id SERIAL PRIMARY KEY,
     valor DECIMAL(10, 2) NOT NULL,
-    data_pagamento DATE NOT NULL,
+    data_pagamento DATE NOT NULL
 );
 
     
