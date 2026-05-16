@@ -40,7 +40,7 @@ O banco de dados e composto por 9 tabelas:
 ## Relacionamentos principais
 
 - Clientes,funcionarios e lojas estão relacionados a um endereço da tabela endereço
-- A tabela `filme_ator` possui relacionamento N:N entre filmes e atores,dessa forma varios atores podem se relacionar com varios filmes e filmes podem ser relacionar com varios atores.
+- A tabela `filme_ator` possui relacionamento N:N entre filmes e atores,dessa forma atores podem se relacionar com varios filmes e filmes podem ser relacionar com varios atores.
 - Um aluguel relaciona cliente, filme, funcionario e pagamento.
 
 ## Diagrama
