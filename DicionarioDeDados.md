@@ -148,8 +148,4 @@ Relacionamentos:
 - `aluguel.funcionario_id` referencia `funcionario.funcionario_id`.
 - `aluguel.pagamento_id` referencia `pagamento.pagamento_id`.
 
-## Observacoes sobre o script SQL
 
-- O arquivo `Consultas.sql` esta vazio, portanto este dicionario descreve apenas a estrutura criada em `Construcao.sql`.
-- O script apresenta nomes com acentuacao em alguns pontos relacionados a `endereco`. Para facilitar manutencao e execucao, e recomendavel padronizar os nomes das tabelas e colunas sem acentos.
-- No arquivo `Construcao.sql`, a tabela `pagamento` possui uma virgula apos o ultimo campo. Dependendo do SGBD, isso pode causar erro de sintaxe durante a execucao.
