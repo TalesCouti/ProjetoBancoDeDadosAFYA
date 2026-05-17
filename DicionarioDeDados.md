@@ -149,3 +149,4 @@ Relacionamentos:
 - `aluguel.pagamento_id` referencia `pagamento.pagamento_id`.
 
 
+ 

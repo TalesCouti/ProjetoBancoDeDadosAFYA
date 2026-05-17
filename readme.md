@@ -45,16 +45,15 @@ O banco de dados e composto por 9 tabelas:
 
 ## Diagrama
 
-A representacao visual do banco pode ser consultada no arquivo [Diagrama.png](Diagrama.png).
+![Diagrama.png](Diagrama.png).
 
 ## Dicionario de dados
 
 As informacoes detalhadas sobre cada tabela estao disponiveis em [DicionarioDeDados.md](DicionarioDeDados.md).
 
  ## Ferramentas utilizadas
- -- Visual Studio Code para escrita da documentação e código
- -- MySQL Workbench Executar os códigos e interface gráfica
- -- Draw.io para representação visual do diagrama
-
+ - [Visual Studio Code](https://code.visualstudio.com/) para escrita da documentação e código.
+ - [MySQL Workbench](https://www.mysql.com/products/workbench/) para executar os códigos e visualizar consultas com interface gráfica.
+ - [Draw.io](https://www.drawio.com/) para representação visual do diagrama.
  ## Referencias utilizadas
- --w3schools.com/MySQL
+ - [W3Schools](https://www.w3schools.com/mysql) para consulta de documentação.
