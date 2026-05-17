@@ -1,6 +1,8 @@
-# Trabalho Final de Banco de Dados - AFYA 6° Periodo
+# Trabalho Final de Banco de Dados - AFYA 6 Periodo
 
 Integrantes: Tales Coutinho Carlos e Pedro Henrique Barbosa de Sousa.
+
+Repositorio: https://github.com/TalesCouti/ProjetoBancoDeDadosAFYA
 
 Este projeto apresenta a modelagem de um banco de dados para uma locadora de filmes. A estrutura foi definida em SQL e contempla o cadastro de filmes, clientes, enderecos, lojas, funcionarios, atores, pagamentos e alugueis.
 
@@ -18,9 +20,9 @@ O objetivo do banco de dados e organizar as principais informacoes de uma locado
 
 ## Arquivos do projeto
 
-- [Construção.sql](Construção.sql): Contem a criação inicial das tabelas e inserções iniciais.
-- [Consultas.sql](Consultas.sql): Consultas de teste para o banco de dados.
-- [DicionarioDeDados.md](DicionarioDeDados.md): descreve as tabelas, campos, tipos de dados, chaves e relacionamentos do banco.
+- [Construcao.sql](Construcao.sql): contem a criacao inicial das tabelas e insercoes iniciais.
+- [Consultas.sql](Consultas.sql): consultas de teste para o banco de dados.
+- [DicionarioDeDados.md](DicionarioDeDados.md): descreve as tabelas, campos, tipos de dados, chaves, relacionamentos e regras de cascade do banco.
 - [Diagrama.png](Diagrama.png): representacao visual do modelo do banco de dados.
 
 ## Estrutura geral do banco
@@ -39,9 +41,26 @@ O banco de dados e composto por 9 tabelas:
 
 ## Relacionamentos principais
 
-- Clientes,funcionarios e lojas estão relacionados a um endereço da tabela endereço
-- A tabela `filme_ator` possui relacionamento N:N entre filmes e atores,dessa forma atores podem se relacionar com varios filmes e filmes podem ser relacionar com varios atores.
+- Clientes, funcionarios e lojas estao relacionados a um endereco da tabela `endereco`.
+- A tabela `filme_ator` possui relacionamento N:N entre filmes e atores; dessa forma, atores podem se relacionar com varios filmes e filmes podem se relacionar com varios atores.
 - Um aluguel relaciona cliente, filme, funcionario e pagamento.
+
+## Regras de Cascade
+
+As chaves estrangeiras do banco usam `ON DELETE CASCADE` e `ON UPDATE CASCADE`.
+
+- `ON DELETE CASCADE`: Quando um registro da tabela pai é excluido, os registros das tabelas filho tambem sao excluidos automaticamente.
+- `ON DELETE CASCADE`: Quando um registro da tabela pai é atualizado, os registros das tabelas filho tambem sao atualizados automaticamente.
+
+Essas regras servem para manter as referencias do banco, evitando que tabelas filhas apontem para registros na tabela pai que não existem ou que foram modificados.
+
+Tabelas com cascade:
+
+- `cliente`, pela chave estrangeira `endereco_id`.
+- `loja`, pela chave estrangeira `endereco_id`.
+- `funcionario`, pelas chaves estrangeiras `loja_id` e `endereco_id`.
+- `filme_ator`, pelas chaves estrangeiras `filme_id` e `ator_id`.
+- `aluguel`, pelas chaves estrangeiras `cliente_id`, `filme_id`, `funcionario_id` e `pagamento_id`.
 
 ## Diagrama
 
@@ -51,9 +70,12 @@ O banco de dados e composto por 9 tabelas:
 
 As informacoes detalhadas sobre cada tabela estao disponiveis em [DicionarioDeDados.md](DicionarioDeDados.md).
 
- ## Ferramentas utilizadas
- - [Visual Studio Code](https://code.visualstudio.com/) para escrita da documentação e código.
- - [MySQL Workbench](https://www.mysql.com/products/workbench/) para executar os códigos e visualizar consultas com interface gráfica.
- - [Draw.io](https://www.drawio.com/) para representação visual do diagrama.
- ## Referencias utilizadas
- - [W3Schools](https://www.w3schools.com/mysql) para consulta de documentação.
+## Ferramentas utilizadas
+
+- [Visual Studio Code](https://code.visualstudio.com/) para escrita da documentacao e codigo.
+- [MySQL Workbench](https://www.mysql.com/products/workbench/) para executar os codigos e visualizar consultas com interface grafica.
+- [Draw.io](https://www.drawio.com/) para representacao visual do diagrama.
+
+## Referencias utilizadas
+
+- [W3Schools](https://www.w3schools.com/mysql) para consulta de documentacao.

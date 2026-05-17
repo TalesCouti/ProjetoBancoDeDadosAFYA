@@ -1,4 +1,3 @@
--- Criação da tabela de filmes, que armazena informações sobre os filmes disponíveis para aluguel
 CREATE TABLE filme(
     filme_id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
@@ -7,7 +6,6 @@ CREATE TABLE filme(
     estoque INT NOT NULL,
     data_lancamento DATE NOT NULL
 );
--- Criação da tabela de enderecos, que armazena informações sobre os enderecos dos clientes, lojas e funcionários
 CREATE TABLE endereco(
     endereco_id INT AUTO_INCREMENT PRIMARY KEY,
     pais VARCHAR(255) NOT NULL,
@@ -16,7 +14,6 @@ CREATE TABLE endereco(
     logradouro VARCHAR(255) NOT NULL,
     numero VARCHAR(20)
 );
--- Criação da tabela de clientes, que armazena informações sobre os clientes que alugam os filmes
 CREATE TABLE cliente(
     cliente_id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
@@ -24,46 +21,50 @@ CREATE TABLE cliente(
     telefone VARCHAR(20) NOT NULL UNIQUE,
     endereco_id INT,
     FOREIGN KEY (endereco_id) REFERENCES endereco(endereco_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
--- Criação da tabela de lojas, que armazena informações sobre as lojas onde os filmes são alugados
 CREATE TABLE loja(
     loja_id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     endereco_id INT,
     FOREIGN KEY (endereco_id) REFERENCES endereco(endereco_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
--- Criação da tabela de funcionários, que armazena informações sobre os funcionários que trabalham nas lojas
 CREATE TABLE funcionario(
     funcionario_id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     cargo VARCHAR(255) NOT NULL,
     loja_id INT NOT NULL,
     endereco_id INT NOT NULL,
-    FOREIGN KEY (loja_id) REFERENCES loja(loja_id),
+    FOREIGN KEY (loja_id) REFERENCES loja(loja_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     FOREIGN KEY (endereco_id) REFERENCES endereco(endereco_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
--- Criação da tabela de atores, que armazena informações sobre os atores que atuam nos filmes
 CREATE TABLE ator(
     ator_id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL
 );
--- Criação da tabela de relacionamento entre filmes e atores, permitindo que um filme tenha vários atores e um ator possa atuar em vários filmes
 CREATE TABLE filme_ator(
     filme_id INT NOT NULL,
     ator_id INT NOT NULL,
     PRIMARY KEY (filme_id, ator_id),
-    FOREIGN KEY (filme_id) REFERENCES filme(filme_id),
+    FOREIGN KEY (filme_id) REFERENCES filme(filme_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     FOREIGN KEY (ator_id) REFERENCES ator(ator_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
-
--- Criação da tabela de pagamento, que armazena informações sobre os pagamentos realizados pelos clientes
 CREATE TABLE pagamento(
     pagamento_id INT AUTO_INCREMENT PRIMARY KEY,
     valor DECIMAL(10, 2) NOT NULL,
     data_pagamento DATE NOT NULL
 );
-
--- Criação da tabela de aluguel, que relaciona clientes, filmes, funcionários e pagamentos
 CREATE TABLE aluguel(
     aluguel_id INT AUTO_INCREMENT PRIMARY KEY,
     cliente_id INT NOT NULL,
@@ -72,12 +73,19 @@ CREATE TABLE aluguel(
     pagamento_id INT NOT NULL,
     data_aluguel DATE NOT NULL,
     data_devolucao DATE,
-    FOREIGN KEY (cliente_id) REFERENCES cliente(cliente_id),
-    FOREIGN KEY (filme_id) REFERENCES filme(filme_id),
-    FOREIGN KEY (funcionario_id) REFERENCES funcionario(funcionario_id),
+    FOREIGN KEY (cliente_id) REFERENCES cliente(cliente_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (filme_id) REFERENCES filme(filme_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (funcionario_id) REFERENCES funcionario(funcionario_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     FOREIGN KEY (pagamento_id) REFERENCES pagamento(pagamento_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
-
 
 -- Abaixo estão os comandos de inserção de dados inicias para todas tabelas acima.
 

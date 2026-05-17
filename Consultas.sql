@@ -1,7 +1,15 @@
+
 -- Seleciona filmes da categoria ficção cientifica
 SELECT * FROM filmes
 WHERE categoria = 'Ficção Científica';
 
+-- Seleciona clientes com o sobrenome "Ferreira" em qualquer parte do nome
+SELECT * FROM cliente
+WHERE nome LIKE '%Ferreira%';   
+
+-- Seleciona clientes que o primeiro nome tem extamente 4 letras.
+SELECT * FROM cliente
+WHERE nome LIKE '____ %';   
 
 -- Seleciona atores que atuaram em filmes de ficção cientifica
 SELECT a.nome
@@ -20,6 +28,7 @@ JOIN pagamento pg
 GROUP BY fun.funcionario_id, fun.nome
 ORDER BY SUM(pg.valor) DESC
 LIMIT 1;
+
 
 -- Cliente que fez maior valor em alugueis
 SELECT cli.nome, SUM(pg.valor)
@@ -97,3 +106,28 @@ SELECT
 FROM loja l
 JOIN endereco e
     ON l.endereco_id = e.endereco_id;
+
+-- Utilizando SUBCONSULTA retorna todos funcionarios que tem algum aluguel cadastrado. 
+SELECT nome FROM funcionario AS f
+WHERE funcionario_id IN (
+SELECT funcionario_id FROM aluguel AS al
+WHERE f.funcionario_id = al.funcionario_id);
+
+-- Tambem Utilizando SUBCONSULTA retorna todos funcionarios que não tem algum aluguel cadastrado. 
+SELECT nome FROM funcionario AS f
+WHERE funcionario_id NOT IN (
+SELECT funcionario_id FROM aluguel AS al
+WHERE f.funcionario_id = al.funcionario_id);
+
+-- Cliente que mais alugou filmes de ação
+SELECT cli.nome, COUNT(*) AS quantidade_alugueis
+FROM cliente cli
+JOIN aluguel al
+    ON cli.cliente_id = al.cliente_id
+JOIN filme f
+    ON al.filme_id = f.filme_id
+WHERE f.categoria = 'Ficção Cientifica'
+GROUP BY cli.cliente_id, cli.nome
+ORDER BY quantidade_alugueis DESC
+LIMIT 1;
+
