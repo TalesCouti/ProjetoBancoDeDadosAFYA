@@ -19,7 +19,7 @@ O objetivo do banco de dados e organizar as principais informacoes de uma locado
 ## Arquivos do projeto
 
 - [Construção.sql](Construção.sql): Contem a criação inicial das tabelas e inserções iniciais.
-- [Consultas.sql](Construção.sql): Consultas de teste para o banco de dados.
+- [Consultas.sql](Consultas.sql): Consultas de teste para o banco de dados.
 - [DicionarioDeDados.md](DicionarioDeDados.md): descreve as tabelas, campos, tipos de dados, chaves e relacionamentos do banco.
 - [Diagrama.png](Diagrama.png): representacao visual do modelo do banco de dados.
 
