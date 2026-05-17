@@ -19,7 +19,7 @@ O objetivo do banco de dados e organizar as principais informacoes de uma locado
 ## Arquivos do projeto
 
 - [Construção.sql](Construção.sql): Contem a criação inicial das tabelas e inserções iniciais.
-- [Consultas.sql](Construção.sql): Contem consultas de teste.
+- [Consultas.sql](Construção.sql): Consultas de teste para o banco de dados.
 - [DicionarioDeDados.md](DicionarioDeDados.md): descreve as tabelas, campos, tipos de dados, chaves e relacionamentos do banco.
 - [Diagrama.png](Diagrama.png): representacao visual do modelo do banco de dados.
 
@@ -51,3 +51,10 @@ A representacao visual do banco pode ser consultada no arquivo [Diagrama.png](Di
 
 As informacoes detalhadas sobre cada tabela estao disponiveis em [DicionarioDeDados.md](DicionarioDeDados.md).
 
+ ## Ferramentas utilizadas
+ -- Visual Studio Code para escrita da documentação e código
+ -- MySQL Workbench Executar os códigos e interface gráfica
+ -- Draw.io para representação visual do diagrama
+
+ ## Referencias utilizadas
+ --w3schools.com/MySQL

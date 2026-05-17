@@ -1,6 +1,6 @@
 -- Criação da tabela de filmes, que armazena informações sobre os filmes disponíveis para aluguel
 CREATE TABLE filme(
-    filme_id SERIAL PRIMARY KEY,
+    filme_id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
     diretor VARCHAR(255) NOT NULL,
     categoria VARCHAR(255) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE filme(
 );
 -- Criação da tabela de enderecos, que armazena informações sobre os enderecos dos clientes, lojas e funcionários
 CREATE TABLE endereco(
-    endereco_id SERIAL PRIMARY KEY,
+    endereco_id INT AUTO_INCREMENT PRIMARY KEY,
     pais VARCHAR(255) NOT NULL,
     cidade VARCHAR(255) NOT NULL,
     bairro VARCHAR(255) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE endereco(
 );
 -- Criação da tabela de clientes, que armazena informações sobre os clientes que alugam os filmes
 CREATE TABLE cliente(
-    cliente_id SERIAL PRIMARY KEY,
+    cliente_id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     telefone VARCHAR(20) NOT NULL UNIQUE,
@@ -27,14 +27,14 @@ CREATE TABLE cliente(
 );
 -- Criação da tabela de lojas, que armazena informações sobre as lojas onde os filmes são alugados
 CREATE TABLE loja(
-    loja_id SERIAL PRIMARY KEY,
+    loja_id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
-    endereco_id INT NOT NULL,
+    endereco_id INT,
     FOREIGN KEY (endereco_id) REFERENCES endereco(endereco_id)
 );
 -- Criação da tabela de funcionários, que armazena informações sobre os funcionários que trabalham nas lojas
 CREATE TABLE funcionario(
-    funcionario_id SERIAL PRIMARY KEY,
+    funcionario_id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     cargo VARCHAR(255) NOT NULL,
     loja_id INT NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE funcionario(
 );
 -- Criação da tabela de atores, que armazena informações sobre os atores que atuam nos filmes
 CREATE TABLE ator(
-    ator_id SERIAL PRIMARY KEY,
+    ator_id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL
 );
 -- Criação da tabela de relacionamento entre filmes e atores, permitindo que um filme tenha vários atores e um ator possa atuar em vários filmes
@@ -58,14 +58,14 @@ CREATE TABLE filme_ator(
 
 -- Criação da tabela de pagamento, que armazena informações sobre os pagamentos realizados pelos clientes
 CREATE TABLE pagamento(
-    pagamento_id SERIAL PRIMARY KEY,
+    pagamento_id INT AUTO_INCREMENT PRIMARY KEY,
     valor DECIMAL(10, 2) NOT NULL,
     data_pagamento DATE NOT NULL
 );
 
 -- Criação da tabela de aluguel, que relaciona clientes, filmes, funcionários e pagamentos
 CREATE TABLE aluguel(
-    aluguel_id SERIAL PRIMARY KEY,
+    aluguel_id INT AUTO_INCREMENT PRIMARY KEY,
     cliente_id INT NOT NULL,
     filme_id INT NOT NULL,
     funcionario_id INT NOT NULL,
@@ -156,7 +156,11 @@ INSERT INTO ator (nome) VALUES
 ('Margot Robbie'),
 ('Ryan Reynolds'),
 ('Anya Taylor-Joy'),
-('Florence Pugh');
+('Florence Pugh'),
+('Jim Carrey'),
+('Cilian Murphy'),
+("Adam Sandler"),
+("Samuel L jackson");
  
 
 -- FILME-ATOR (50 registros)
