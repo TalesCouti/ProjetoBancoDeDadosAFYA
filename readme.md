@@ -20,9 +20,9 @@ O objetivo do banco de dados e organizar as principais informacoes de uma locado
 
 ## Arquivos do projeto
 
-- [Construcao.sql](Construcao.sql): contem a criacao inicial das tabelas e insercoes iniciais.
-- [Consultas.sql](Consultas.sql): consultas de teste para o banco de dados.
-- [DicionarioDeDados.md](DicionarioDeDados.md): descreve as tabelas, campos, tipos de dados, chaves, relacionamentos e regras de cascade do banco.
+- [Construção.sql](Construcao.sql): Contem a criação inicial das tabelas e inserções iniciais.
+- [Consultas.sql](Consultas.sql): Consultas de teste para o banco de dados.
+- [DicionarioDeDados.md](DicionarioDeDados.md): descreve as tabelas, campos, tipos de dados, chaves e relacionamentos do banco.
 - [Diagrama.png](Diagrama.png): representacao visual do modelo do banco de dados.
 
 ## Estrutura geral do banco
@@ -70,6 +70,7 @@ Tabelas com cascade:
 
 As informacoes detalhadas sobre cada tabela estao disponiveis em [DicionarioDeDados.md](DicionarioDeDados.md).
 
+<<<<<<< HEAD
 ## Ferramentas utilizadas
 
 - [Visual Studio Code](https://code.visualstudio.com/) para escrita da documentacao e codigo.
@@ -79,3 +80,11 @@ As informacoes detalhadas sobre cada tabela estao disponiveis em [DicionarioDeDa
 ## Referencias utilizadas
 
 - [W3Schools](https://www.w3schools.com/mysql) para consulta de documentacao.
+=======
+ ## Ferramentas utilizadas
+ - [Visual Studio Code](https://code.visualstudio.com/) para escrita da documentação e código.
+ - [MySQL Workbench](https://www.mysql.com/products/workbench/) para executar os códigos e visualizar consultas com interface gráfica.
+ - [Draw.io](https://www.drawio.com/) para representação visual do diagrama.
+ ## Referencias utilizadas
+ - [W3Schools](https://www.w3schools.com/mysql) para consulta de documentação.
+>>>>>>> 2982b100ca536c8869f1d03212c953359a527847
