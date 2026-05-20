@@ -64,13 +64,12 @@ Tabelas com cascade:
 
 ## Diagrama
 
-![Diagrama.png](Diagrama.png).
+![Diagrama.png](Diagrama.png)
 
 ## Dicionario de dados
 
 As informacoes detalhadas sobre cada tabela estao disponiveis em [DicionarioDeDados.md](DicionarioDeDados.md).
 
-<<<<<<< HEAD
 ## Ferramentas utilizadas
 
 - [Visual Studio Code](https://code.visualstudio.com/) para escrita da documentacao e codigo.
